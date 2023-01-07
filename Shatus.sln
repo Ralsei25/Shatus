@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shatus.Vk", "src\Shatus.VkB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shatus.YouTube", "src\Shatus.YouTube\Shatus.YouTube.csproj", "{6A012A95-D117-4569-8C57-D4C6A0CEC421}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shatus.WinForms", "src\Shatus.WinForms\Shatus.WinForms.csproj", "{E494C97A-8629-468C-B708-90DFA3C40A3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{6A012A95-D117-4569-8C57-D4C6A0CEC421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A012A95-D117-4569-8C57-D4C6A0CEC421}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A012A95-D117-4569-8C57-D4C6A0CEC421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E494C97A-8629-468C-B708-90DFA3C40A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E494C97A-8629-468C-B708-90DFA3C40A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E494C97A-8629-468C-B708-90DFA3C40A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E494C97A-8629-468C-B708-90DFA3C40A3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CC002BBF-805E-488F-B823-90A036F3277D} = {39F02E61-5A86-40C3-8F3E-15B1A14A7B35}
 		{6A012A95-D117-4569-8C57-D4C6A0CEC421} = {39F02E61-5A86-40C3-8F3E-15B1A14A7B35}
+		{E494C97A-8629-468C-B708-90DFA3C40A3E} = {39F02E61-5A86-40C3-8F3E-15B1A14A7B35}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CC9AE5D9-A487-4043-955A-516D053301E3}

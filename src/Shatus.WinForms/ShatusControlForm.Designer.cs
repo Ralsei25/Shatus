@@ -1,6 +1,6 @@
 ﻿namespace ShatusBot.WinForms
 {
-    partial class Form1
+    partial class ShatusControlForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -185,11 +185,11 @@
             this.videoTitle5.Size = new System.Drawing.Size(187, 39);
             this.videoTitle5.TabIndex = 14;
             // 
-            // Form1
+            // ShatusControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 450);
+            this.ClientSize = new System.Drawing.Size(824, 283);
             this.Controls.Add(this.submit5);
             this.Controls.Add(this.videoLink5);
             this.Controls.Add(this.videoTitle5);
@@ -207,8 +207,9 @@
             this.Controls.Add(this.videoTitle1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "ShatusBot";
+            this.Name = "ShatusControlForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Shatus Control";
             this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
