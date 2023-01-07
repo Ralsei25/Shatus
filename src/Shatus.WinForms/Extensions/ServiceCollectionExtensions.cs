@@ -8,10 +8,7 @@ namespace Shatus.WinForms.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static void ConfigureWritable<T>(this IServiceCollection services,
-        IConfigurationSection section,
-        string file = "appsettings.json",
-        string? configsDirectoryPath = null) where T : class, new()
+    public static void ConfigureWritable<T>(this IServiceCollection services, IConfigurationSection section, string file = "appsettings.json", string? configsDirectoryPath = null) where T : class, new()
     {
         if (string.IsNullOrWhiteSpace(configsDirectoryPath))
             configsDirectoryPath = AppDomain.CurrentDomain.BaseDirectory;
@@ -19,7 +16,7 @@ public static class ServiceCollectionExtensions
         services.Configure<T>(section);
         services.AddTransient<IWritableOptions<T>>(provider =>
         {
-            var options = provider.GetService<IOptionsMonitor<T>>();
+            var options = provider.GetRequiredService<IOptionsMonitor<T>>();
             return new WritableOptions<T>(configsDirectoryPath, options, section.Key, file);
         });
     }
