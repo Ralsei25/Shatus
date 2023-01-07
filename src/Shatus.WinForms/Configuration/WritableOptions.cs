@@ -6,39 +6,37 @@ namespace Shatus.WinForms.Configs;
 
 public class WritableOptions<T> : IWritableOptions<T> where T : class, new()
 {
-    private readonly string _configsDirectoryPath;
+    private readonly string _optionsDirectoryPath;
     private readonly IOptionsMonitor<T> _options;
     private readonly string _section;
-    private readonly string _file;
+    private readonly string _optionsFileName;
 
-    public WritableOptions(string configsDirectoryPath,
-        IOptionsMonitor<T> options,
-        string section,
-        string file)
+    public WritableOptions(string configsDirectoryPath, IOptionsMonitor<T> options, string section, string file)
     {
-        _configsDirectoryPath = configsDirectoryPath;
+        _optionsDirectoryPath = configsDirectoryPath;
         _options = options;
         _section = section;
-        _file = file;
+        _optionsFileName = file;
     }
 
     public T Value => _options.CurrentValue;
-    public T Get(string name) => _options.Get(name);
+    public T Get(string? name) => _options.Get(name);
 
     public async Task UpdateAsync(Action<T> applyChanges)
     {
-        var filePath = Path.Combine(_configsDirectoryPath, _file);
-
+        var filePath = Path.Combine(_optionsDirectoryPath, _optionsFileName);
         if (!File.Exists(filePath))
             await File.Create(filePath).DisposeAsync();
 
-        JsonObject jObject = JsonSerializer.Deserialize<JsonObject>(await File.ReadAllTextAsync(filePath)) ?? new JsonObject();
-        var sectionObject = jObject.TryGetPropertyValue(_section, out var section) ?
-            JsonSerializer.Deserialize<T>(section!.ToString()) : (Value ?? new T());
+        var jsonObject = JsonSerializer.Deserialize<JsonObject>(await File.ReadAllTextAsync(filePath)) ?? new JsonObject();
+
+        var sectionObject = jsonObject.TryGetPropertyValue(_section, out var section) 
+                ? JsonSerializer.Deserialize<T>(section!.ToString()) ?? new T()
+                : Value ?? new T();
 
         applyChanges(sectionObject);
 
-        jObject[_section] = JsonNode.Parse(JsonSerializer.Serialize(sectionObject));
-        await File.WriteAllTextAsync(filePath, JsonSerializer.Serialize(jObject, new JsonSerializerOptions { WriteIndented = true }));
+        jsonObject[_section] = JsonNode.Parse(JsonSerializer.Serialize(sectionObject));
+        await File.WriteAllTextAsync(filePath, JsonSerializer.Serialize(jsonObject, new JsonSerializerOptions { WriteIndented = true }));
     }
 }
