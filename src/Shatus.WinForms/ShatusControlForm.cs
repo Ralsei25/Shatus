@@ -24,13 +24,13 @@ public partial class ShatusControlForm : Form
         if (!string.IsNullOrEmpty(_configs.Value.VideoTitle1))
             videoTitle1.Text = _configs.Value.VideoTitle1;
         if (!string.IsNullOrEmpty(_configs.Value.VideoTitle2))
-            videoTitle1.Text = _configs.Value.VideoTitle2;
+            videoTitle2.Text = _configs.Value.VideoTitle2;
         if (!string.IsNullOrEmpty(_configs.Value.VideoTitle3))
-            videoTitle1.Text = _configs.Value.VideoTitle3;
+            videoTitle3.Text = _configs.Value.VideoTitle3;
         if (!string.IsNullOrEmpty(_configs.Value.VideoTitle4))
-            videoTitle1.Text = _configs.Value.VideoTitle4;
+            videoTitle4.Text = _configs.Value.VideoTitle4;
         if (!string.IsNullOrEmpty(_configs.Value.VideoTitle5))
-            videoTitle1.Text = _configs.Value.VideoTitle5;
+            videoTitle5.Text = _configs.Value.VideoTitle5;
     }
     private async Task SubmitVideo(TextBox titleTB, TextBox linkTB, Button btn)
     {
