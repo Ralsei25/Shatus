@@ -41,10 +41,8 @@ internal static class Program
         services.AddSingleton<ICaptchaSolver, WinFormCaptchaSolver>();
 
         var builder = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
             .AddUserSecrets(typeof(Program).Assembly);
-
         var configRoot = builder.Build();
 
         services.ConfigureWritable<WinAppConfigs>(configRoot.GetSection(nameof(WinAppConfigs)));
