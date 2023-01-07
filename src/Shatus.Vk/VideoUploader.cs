@@ -3,10 +3,6 @@ using System.Text.Json.Serialization;
 
 namespace Shatus.Vk;
 
-public struct VideoInfo
-{
-    [JsonPropertyName("video_id")] public long VideoId { get; set; }
-}
 public class VideoUploader
 {
     private readonly IHttpClientFactory _httpClientFactory;
@@ -23,5 +19,11 @@ public class VideoUploader
         request.AddFile("video_file", filePath, "video/mp4");
         var response = await client.ExecuteAsync<VideoInfo>(request);
         return response.Data;
+    }
+
+
+    public struct VideoInfo
+    {
+        [JsonPropertyName("video_id")] public long VideoId { get; set; }
     }
 }

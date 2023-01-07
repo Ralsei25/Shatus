@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Shatus.Vk.Extensions;
+using Shatus.Vk.Helpers;
 using VkNet;
 using VkNet.Abstractions;
 using VkNet.Enums.Filters;
@@ -17,7 +18,7 @@ public class ShatusVkPublisher : IDisposable
     private readonly VideoUploader _videoUploader;
     private readonly IOptions<VkConfigs> _options;
     private readonly ILogger<ShatusVkPublisher>? _logger;
-    private IVkApi _api = new VkApi();
+    private readonly IVkApi _api;
     private readonly SemaphoreSlim _semaphoreSlim = new(1);
 
     public ShatusVkPublisher(
@@ -65,10 +66,12 @@ public class ShatusVkPublisher : IDisposable
             Message = message,
         });
     }
+
+    // TODO: Refactoring requared
     private async Task<DateTime> GetPublishDateAsync()
     {
-        var publishDate = DateTime.UtcNow.AddHours(3).AddHours(1);
-        publishDate = publishDate.AddSeconds(-publishDate.Second);
+        var publishDate = TimeHelper.MoscowNow.AddHours(1).TrimSeconds();
+
         var wall = await _api.Wall.GetAsync(new()
         {
             OwnerId = -_options.Value.GroupId,
@@ -76,23 +79,32 @@ public class ShatusVkPublisher : IDisposable
             Count = 100,
         });
 
+        bool postTomorow = publishDate.IsNightTime();
+        
         var lastPostToday = wall.WallPosts
-            .Where(p => p.Date.Value.Date == DateTime.Today)
+            .Where(p => p.Date.Value.Date == (postTomorow ? DateTime.Today.AddDays(1) : DateTime.Today))
             .OrderByDescending(p => p.Date)
             .FirstOrDefault();
 
 
         if (lastPostToday is not null)
         {
-            publishDate = lastPostToday.Date.Value.AddHours(3).AddHours(4);
-            publishDate = publishDate.AddSeconds(-publishDate.Second);
-            while (wall.WallPosts.Any(p => p.Date.Value.AddHours(3).AddSeconds(-p.Date.Value.Second) == publishDate))
-            {
+            publishDate = lastPostToday.Date.Value.UtcToMoscow().AddHours(4).TrimSeconds();
+            while (publishDate.IsNightTime())
+                publishDate = publishDate.AddHours(1);
+            while (wall.WallPosts.Any(p => p.Date.Value.UtcToMoscow().TrimSeconds() == publishDate) ||
+                    publishDate.IsNightTime()) 
                 publishDate = publishDate.AddHours(4);
-            }
         }
-        return publishDate.AddHours(-3);
+        else
+        {
+            while (publishDate.IsNightTime())
+                publishDate = publishDate.AddHours(1);
+        }
+        return publishDate.MoscowToUtc();
     }
+
+    
     private async Task<Video> SaveVideoAsync(string videoName, string filePath)
     {
         var video = await _api.Video.SaveAsync(new()
