@@ -5,11 +5,11 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{39F02E61-5A86-40C3-8F3E-15B1A14A7B35}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shatus.Vk", "src\Shatus.VkBot\Shatus.Vk.csproj", "{CC002BBF-805E-488F-B823-90A036F3277D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shatus.YouTube", "src\Shatus.YouTube\Shatus.YouTube.csproj", "{6A012A95-D117-4569-8C57-D4C6A0CEC421}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shatus.WinForms", "src\Shatus.WinForms\Shatus.WinForms.csproj", "{E494C97A-8629-468C-B708-90DFA3C40A3E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shatus.Vk", "src\Shatus.Vk\Shatus.Vk.csproj", "{B9ECEE6D-345E-432D-AD5C-D39DC707C996}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CC002BBF-805E-488F-B823-90A036F3277D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC002BBF-805E-488F-B823-90A036F3277D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC002BBF-805E-488F-B823-90A036F3277D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC002BBF-805E-488F-B823-90A036F3277D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A012A95-D117-4569-8C57-D4C6A0CEC421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A012A95-D117-4569-8C57-D4C6A0CEC421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A012A95-D117-4569-8C57-D4C6A0CEC421}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,14 +25,18 @@ Global
 		{E494C97A-8629-468C-B708-90DFA3C40A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E494C97A-8629-468C-B708-90DFA3C40A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E494C97A-8629-468C-B708-90DFA3C40A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9ECEE6D-345E-432D-AD5C-D39DC707C996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9ECEE6D-345E-432D-AD5C-D39DC707C996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9ECEE6D-345E-432D-AD5C-D39DC707C996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9ECEE6D-345E-432D-AD5C-D39DC707C996}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CC002BBF-805E-488F-B823-90A036F3277D} = {39F02E61-5A86-40C3-8F3E-15B1A14A7B35}
 		{6A012A95-D117-4569-8C57-D4C6A0CEC421} = {39F02E61-5A86-40C3-8F3E-15B1A14A7B35}
 		{E494C97A-8629-468C-B708-90DFA3C40A3E} = {39F02E61-5A86-40C3-8F3E-15B1A14A7B35}
+		{B9ECEE6D-345E-432D-AD5C-D39DC707C996} = {39F02E61-5A86-40C3-8F3E-15B1A14A7B35}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CC9AE5D9-A487-4043-955A-516D053301E3}

@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shatus.VkBot\Shatus.Vk.csproj" />
+    <ProjectReference Include="..\Shatus.Vk\Shatus.Vk.csproj" />
     <ProjectReference Include="..\Shatus.YouTube\Shatus.YouTube.csproj" />
   </ItemGroup>
 
