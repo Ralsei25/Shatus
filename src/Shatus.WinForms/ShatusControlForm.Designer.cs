@@ -71,6 +71,7 @@
             this.videoTitle1.Name = "videoTitle1";
             this.videoTitle1.Size = new System.Drawing.Size(187, 39);
             this.videoTitle1.TabIndex = 2;
+            this.videoTitle1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.video1_KeyPress);
             // 
             // videoLink1
             // 
@@ -78,6 +79,7 @@
             this.videoLink1.Name = "videoLink1";
             this.videoLink1.Size = new System.Drawing.Size(450, 39);
             this.videoLink1.TabIndex = 3;
+            this.videoLink1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.video1_KeyPress);
             // 
             // submit1
             // 
@@ -87,7 +89,7 @@
             this.submit1.TabIndex = 4;
             this.submit1.Text = "Submit";
             this.submit1.UseVisualStyleBackColor = true;
-            this.submit1.Click += new System.EventHandler(this.submit1_Click);
+            this.submit1.Click += new System.EventHandler(this.submit_Click);
             // 
             // submit2
             // 
@@ -97,7 +99,7 @@
             this.submit2.TabIndex = 7;
             this.submit2.Text = "Submit";
             this.submit2.UseVisualStyleBackColor = true;
-            this.submit2.Click += new System.EventHandler(this.submit2_Click);
+            this.submit2.Click += new System.EventHandler(this.submit_Click);
             // 
             // videoLink2
             // 
@@ -105,6 +107,7 @@
             this.videoLink2.Name = "videoLink2";
             this.videoLink2.Size = new System.Drawing.Size(450, 39);
             this.videoLink2.TabIndex = 6;
+            this.videoLink2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.video2_KeyPress);
             // 
             // videoTitle2
             // 
@@ -112,6 +115,7 @@
             this.videoTitle2.Name = "videoTitle2";
             this.videoTitle2.Size = new System.Drawing.Size(187, 39);
             this.videoTitle2.TabIndex = 5;
+            this.videoTitle2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.video2_KeyPress);
             // 
             // submit3
             // 
@@ -121,7 +125,7 @@
             this.submit3.TabIndex = 10;
             this.submit3.Text = "Submit";
             this.submit3.UseVisualStyleBackColor = true;
-            this.submit3.Click += new System.EventHandler(this.submit3_Click);
+            this.submit3.Click += new System.EventHandler(this.submit_Click);
             // 
             // videoLink3
             // 
@@ -129,6 +133,7 @@
             this.videoLink3.Name = "videoLink3";
             this.videoLink3.Size = new System.Drawing.Size(450, 39);
             this.videoLink3.TabIndex = 9;
+            this.videoLink3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.video3_KeyPress);
             // 
             // videoTitle3
             // 
@@ -136,6 +141,7 @@
             this.videoTitle3.Name = "videoTitle3";
             this.videoTitle3.Size = new System.Drawing.Size(187, 39);
             this.videoTitle3.TabIndex = 8;
+            this.videoTitle3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.video3_KeyPress);
             // 
             // submit4
             // 
@@ -145,7 +151,7 @@
             this.submit4.TabIndex = 13;
             this.submit4.Text = "Submit";
             this.submit4.UseVisualStyleBackColor = true;
-            this.submit4.Click += new System.EventHandler(this.submit4_Click);
+            this.submit4.Click += new System.EventHandler(this.submit_Click);
             // 
             // videoLink4
             // 
@@ -153,6 +159,7 @@
             this.videoLink4.Name = "videoLink4";
             this.videoLink4.Size = new System.Drawing.Size(450, 39);
             this.videoLink4.TabIndex = 12;
+            this.videoLink4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.video3_KeyPress);
             // 
             // videoTitle4
             // 
@@ -160,6 +167,7 @@
             this.videoTitle4.Name = "videoTitle4";
             this.videoTitle4.Size = new System.Drawing.Size(187, 39);
             this.videoTitle4.TabIndex = 11;
+            this.videoTitle4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.video4_KeyPress);
             // 
             // submit5
             // 
@@ -169,7 +177,7 @@
             this.submit5.TabIndex = 16;
             this.submit5.Text = "Submit";
             this.submit5.UseVisualStyleBackColor = true;
-            this.submit5.Click += new System.EventHandler(this.submit5_Click);
+            this.submit5.Click += new System.EventHandler(this.submit_Click);
             // 
             // videoLink5
             // 
@@ -177,6 +185,7 @@
             this.videoLink5.Name = "videoLink5";
             this.videoLink5.Size = new System.Drawing.Size(450, 39);
             this.videoLink5.TabIndex = 15;
+            this.videoLink5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.video5_KeyPress);
             // 
             // videoTitle5
             // 
@@ -184,6 +193,7 @@
             this.videoTitle5.Name = "videoTitle5";
             this.videoTitle5.Size = new System.Drawing.Size(187, 39);
             this.videoTitle5.TabIndex = 14;
+            this.videoTitle5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.video5_KeyPress);
             // 
             // ShatusControlForm
             // 
@@ -207,6 +217,8 @@
             this.Controls.Add(this.videoTitle1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ShatusControlForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Shatus Control";

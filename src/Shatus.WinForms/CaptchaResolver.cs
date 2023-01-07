@@ -9,7 +9,7 @@ public class WinFormCaptchaSolver : ICaptchaSolver
 
     public void CaptchaIsFalse()
     {
-        throw new NotImplementedException();
+        MessageBox.Show("Captcha solving failed");
     }
 
     public string Solve(string url)

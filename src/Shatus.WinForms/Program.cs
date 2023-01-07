@@ -2,6 +2,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shatus.Vk;
 using Shatus.Vk.Extensions;
+using Shatus.WinForms.Configs;
+using Shatus.WinForms.Extensions;
 using Shatus.Youtube.Extensions;
 using VkNet.Utils.AntiCaptcha;
 
@@ -25,8 +27,6 @@ internal static class Program
 
         using ServiceProvider serviceProvider = services.BuildServiceProvider();
         var shatusControl = serviceProvider.GetRequiredService<ShatusControlForm>();
-        shatusControl.TopMost = true;
-        shatusControl.TopLevel = true;
 
         WinFormCaptchaSolver.SynchronizationContext = SynchronizationContext.Current;
 
@@ -42,9 +42,12 @@ internal static class Program
 
         var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
             .AddUserSecrets(typeof(Program).Assembly);
 
-        services.Configure<VkConfigs>(builder.Build().GetSection(nameof(VkConfigs)));
+        var configRoot = builder.Build();
+
+        services.ConfigureWritable<WinAppConfigs>(configRoot.GetSection(nameof(WinAppConfigs)));
+        services.Configure<VkConfigs>(configRoot.GetSection(nameof(VkConfigs)));
     }
 }
